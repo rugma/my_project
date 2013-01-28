@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Tell a friend</title>
+
+<link href="validationEngine.jquery.css" rel="stylesheet" />
+<style>
+body{ margin:0px; padding:0px; font:normal 11px Verdana, Geneva, sans-serif; background:#ededed;}
+.txtfld{width:235px; border:solid 1px #bdbdbd; height:20px; -webkit-border-radius:6px;-moz-border-radius:6px;font:normal 11px Verdana, Geneva, sans-serif;}
+.txtarea{width:235px; height:60px; border:solid 1px #bdbdbd;-webkit-border-radius:6px;-moz-border-radius:6px;font:normal 11px Verdana, Geneva, sans-serif; }
+#mail_response{display:none;}
+.txt{color:#858585; font-weight:bold; width:105px;}
+</style>
+<script src="js/jquery-1.7.1.min.js"></script>
+<script src="js/jquery.validationEngine.js"></script>
+<script src="js/jquery.validationEngine-en.js"></script>
+<script type="text/javascript">
+<!--
+function new_captcha()
+{
+var c_currentTime = new Date();
+var c_miliseconds = c_currentTime.getTime();
+
+document.getElementById('captcha').src = 'captcha/CaptchaSecurityImages.php?x='+ c_miliseconds; 
+}
+-->
+</script>
+
+    <script>
+   
+            
+            jQuery(document).ready(function(){
+                jQuery("#formID").validationEngine();
+            });
+        </script>
+			</head>
+
+<body>
+
+
+<div style=" width:360px; padding-top:10px; float:right; padding-left:20px !important;">
+<div>
+  <img src="tell-afriend.gif" style="margin-left:10px;" width="189" height="38" />
+</div>
+<div id="mail_response"></div>
+<div style="width:360px; float:right; height:350px; padding-left:0px; padding-top:10px; ">
+<form action="send_frend.php" method="post" enctype="application/x-www-form-urlencoded"  id="formID">
+
+        	<div style="float:left; padding-bottom:10px;padding-top:15px;">
+            	<div class="txt" style=" float:left;    height:20px;"> Your Name</div>
+            	<div style=" float:left; width:250px; height:20px;">
+            	  <label>
+            	  <input name="Name" type="text" class="txtfld validate[required]" id="Name">
+            	  </label>
+            	
+                </div>
+            </div>
+            <div style="float:left; padding-bottom:10px;">
+            	<div class="txt" style=" float:left;    height:20px;">Your E-mail</div>
+           	  <div style=" float:left; width:250px; height:20px;">
+            	  <label>
+            	    <input name="Email" type="text" class="txtfld validate[required,custom[email]]" id="Email"  value="" size="45">
+          	    </label>
+           	  </div>
+            </div>
+            <div style="float:left; padding-bottom:10px;">
+            	<div class="txt" style=" float:left;    height:20px;">Friend's Name</div>
+           	  <div style=" float:left; width:250px; height:20px;">
+            	  <label>
+           	      <input name="Friends_Name" type="text" class="txtfld validate[required]" id="Friends_Name" value="" size="45">
+          	    </label>
+           	  </div>
+            </div>
+            
+          <div style="float:left; padding-bottom:10px;">
+            	<div class="txt" style=" float:left;    height:20px;">Friend's Email</div>
+           	  <div style=" float:left; width:250px; height:20px;">
+            	  <label>
+                  <input name="Friends_Email" type="text" class="txtfld validate[required,custom[email]]"  id="Friends Email" >
+                  
+            	    
+          	    </label>
+       	    </div>
+      </div>
+            <div style="float:left; padding-bottom:10px;"></div>
+        <div style="float:left; padding-bottom:10px;">
+           	  <div class="txt" style=" float:left;    height:20px;">Message </div>
+            	<div style=" float:left; width:250px; height:70px;">
+            	  <label>
+                  <textarea input name="Message" type="text" class="txtarea validate[required]" id="Message"></textarea>
+            	    
+          	    </label>
+          	  </div>
+            </div>
+            <div style="float:left; padding-bottom:10px;">
+            	<div style=" float:left; width:98px; height:20px;"></div>
+            	
+                <div style=" float:left; width:170px; padding-left:60px; height:40px;"> <span style="padding-top:5px; padding-bottom:5px;"><span style="padding-top:5px; padding-bottom:5px;">
+                  
+                  <img src="captcha/CaptchaSecurityImages.php" id="captcha" name="captcha" alt="captcha" width="100" height="27" > 
+                 
+                  </span> </span></div>
+                
+            </div>
+            <div style="float:left; padding-bottom:10px;">
+            	<div class="txt" style=" float:left;    height:20px;">Enter Code</div>
+            	<div style=" float:left; width:200px; height:20px;">
+            	  <label>
+            	    <input name="security_code" type="text" class="txtfld validate[required]" id="security_code">
+          	    </label>
+            	</div>
+            </div>
+            <div style="float:left; padding-bottom:10px;">
+            	<div style=" float:left; width:100px; height:20px;"></div>
+            	<div style=" float:left; width:170px; height:25px;padding-left:45px;">
+            	  <label>
+            	    <input name="button" type="submit" class="btton" id="submit_form" value="Submit">
+          	    </label>
+            	  <label>
+            	    <input name="button2" type="reset" class="btton" id="button2" value="Reset">
+          	    </label>
+                </div>
+            </div>
+            
+       
+        </form> </div>
+</div>
+
+</body>
+</html>
